@@ -42,6 +42,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'blogicum.urls'
 TEMPLATES_DIRS = os.path.join(BASE_DIR, 'templates')
+STATICFILES_DIRS = [
+    BASE_DIR / 'static_dev',
+]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

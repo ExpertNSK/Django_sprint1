@@ -47,14 +47,26 @@ posts = [
 
 
 def index(request: HttpRequest) -> HttpResponse:
-    return render(request, 'index.html')
+    template_name = 'blog/index.html'
+    context = {
+        'posts': reversed(posts)
+    }
+    return render(request, template_name, context)
 
 
 def post_detail(request: HttpRequest, id: int) -> HttpResponse:
-    return render(request, 'detail.html')
+    template_name = 'blog/detail.html'
+    context = {
+        'post': posts[id]
+    }
+    return render(request, template_name, context)
 
 
 def category_posts(
         request: HttpRequest,
         category_slug: str) -> HttpResponse:
-    return render(request, 'category.html')
+    template_name = 'blog/category.html'
+    context = {
+        'category_slug': category_slug
+    }
+    return render(request, template_name, context)
